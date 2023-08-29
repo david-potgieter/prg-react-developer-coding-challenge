@@ -1,4 +1,4 @@
-import { Logo } from '@core/components/layouts/ui/logo/logo'
+import { Logo } from '@core/components/ui/logo/logo'
 import { routeConfig } from '@core/config/routes'
 import { darkModeAtom } from '@core/state/atoms/theme-atoms'
 import { cn } from '@core/utils/cn'
@@ -7,8 +7,8 @@ import { IconMenu2, IconX } from '@tabler/icons-react'
 import { useAtomValue } from 'jotai'
 import { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { BellIconButton } from './ui/button/bell-icon-button'
-import { DarkModeButton } from './ui/button/dark-mode-button'
+import { BellIconButton } from '../ui/button/bell-icon-button'
+import { DarkModeButton } from '../ui/button/dark-mode-button'
 
 export function DashboardLayout(props: { title: string; children: ReactNode }) {
   const darkMode = useAtomValue(darkModeAtom)
