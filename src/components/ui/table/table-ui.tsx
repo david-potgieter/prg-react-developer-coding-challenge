@@ -1,4 +1,6 @@
-export function TableUI({ children, config }) {
+import { ReactNode } from 'react'
+
+export function TableUI({ children, config }: { children: ReactNode; config: any }) {
   const { title, description, columns } = config
   return (
     <div className="px-4 sm:px-6 lg:px-8">
@@ -22,7 +24,7 @@ export function TableUI({ children, config }) {
               <table className="min-w-full divide-y divide-gray-300">
                 <thead className="bg-gray-50">
                   <tr>
-                    {columns.map(column => (
+                    {columns.map((column: any) => (
                       <th
                         key={column.key}
                         scope="col"
