@@ -1,7 +1,6 @@
+import hotelRooms from '@core/state/data/rooms.json'
+import { generateOccupancyData } from '@core/utils/generateOccupancyData'
 import JsonView from 'react18-json-view'
-import hotelRooms from './data/rooms.json'
-import './index.css'
-import { generateOccupancyData } from './utils/generateOccupancyData'
 
 export default function App() {
   return (
