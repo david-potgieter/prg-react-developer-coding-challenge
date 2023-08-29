@@ -18,8 +18,7 @@ export function DashboardLayout(props: { title: string; children: ReactNode }) {
         <div className="bg-gray-100 dark:bg-gray-800 pb-32 transition ease-in-out delay-100">
           <Disclosure
             as="nav"
-            className="bg-gray-100 dark:bg-gray-800 transition ease-in-out delay-100"
-          >
+            className="bg-gray-100 dark:bg-gray-800 transition ease-in-out delay-100">
             {({ open }) => (
               <>
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -31,7 +30,7 @@ export function DashboardLayout(props: { title: string; children: ReactNode }) {
                         </div>
                         <div className="hidden md:block">
                           <div className="ml-10 flex items-baseline space-x-4">
-                            {routeConfig.map((item) => {
+                            {routeConfig.map(item => {
                               // const current = item.path === window.location.pathname
                               const current = false
                               return (
@@ -42,10 +41,9 @@ export function DashboardLayout(props: { title: string; children: ReactNode }) {
                                     current
                                       ? 'bg-gray-900 text-white'
                                       : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                    'rounded-md px-3 py-2 text-sm font-medium'
+                                    'rounded-md px-3 py-2 text-sm font-medium',
                                   )}
-                                  aria-current={current ? 'page' : undefined}
-                                >
+                                  aria-current={current ? 'page' : undefined}>
                                   {item.name}
                                 </Link>
                               )
@@ -64,15 +62,9 @@ export function DashboardLayout(props: { title: string; children: ReactNode }) {
                           <span className="absolute -inset-0.5" />
                           <span className="sr-only">Open main menu</span>
                           {open ? (
-                            <IconX
-                              className="block h-6 w-6"
-                              aria-hidden="true"
-                            />
+                            <IconX className="block h-6 w-6" aria-hidden="true" />
                           ) : (
-                            <IconMenu2
-                              className="block h-6 w-6"
-                              aria-hidden="true"
-                            />
+                            <IconMenu2 className="block h-6 w-6" aria-hidden="true" />
                           )}
                         </Disclosure.Button>
                       </div>
@@ -82,7 +74,7 @@ export function DashboardLayout(props: { title: string; children: ReactNode }) {
 
                 <Disclosure.Panel className="border-b border-gray-200 dark:border-gray-700 md:hidden">
                   <div className="space-y-1 px-2 py-3 sm:px-3">
-                    {routeConfig.map((item) => {
+                    {routeConfig.map(item => {
                       const current = false
                       return (
                         <Disclosure.Button
@@ -93,10 +85,9 @@ export function DashboardLayout(props: { title: string; children: ReactNode }) {
                             current
                               ? 'bg-gray-900 text-white'
                               : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                            'block rounded-md px-3 py-2 text-base font-medium'
+                            'block rounded-md px-3 py-2 text-base font-medium',
                           )}
-                          aria-current={current ? 'page' : undefined}
-                        >
+                          aria-current={current ? 'page' : undefined}>
                           {item.name}
                         </Disclosure.Button>
                       )
@@ -125,7 +116,7 @@ export function DashboardLayout(props: { title: string; children: ReactNode }) {
           <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
             <section>
               <div className="overflow-hidden rounded-3xl bg-gray-50 dark:bg-gray-200 shadow min-h-[300px]">
-                <div className="p-6">{props.children}</div>
+                <div className="p-6 pb-14">{props.children}</div>
               </div>
             </section>
           </div>
