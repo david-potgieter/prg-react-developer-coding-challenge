@@ -7,9 +7,10 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "coverage": "vitest run --coverage",
-    "ci": "npm install && npm run coverage && npm run build",
-    "ci:local": "eslint --fix && npm run test",
+    "test:coverage": "vitest run --coverage",
+    "ci": "npm install && npm run test:coverage && npm run build",
+    "ci:local": "npm run test",
+    "ci:lint": "eslint --fix",
     "postinstall": "husky install"
   },
   "dependencies": {
