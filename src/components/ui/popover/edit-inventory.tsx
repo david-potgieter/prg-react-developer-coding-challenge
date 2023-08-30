@@ -43,7 +43,7 @@ export function InventoryEdit({ item }: { item: RoomType }) {
                   <button
                     onClick={() => handleCleaningFlag(item, EditActions.ADD, close)}
                     className="font-semibold text-gray-900 flex justify-between items-center align-middle w-full">
-                    Flag for Cleaning
+                    Needs Cleaning
                     <IconFlag className="h-5 w-5 text-violet-700" aria-hidden="true" />
                     <span className="absolute inset-0" />
                   </button>
