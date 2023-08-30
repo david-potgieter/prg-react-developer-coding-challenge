@@ -5,10 +5,12 @@ import { AveragesWidget } from '@core/types/room-types'
 import { calcBestDay } from '@core/utils/calc-best-day'
 import { cn } from '@core/utils/cn'
 import { formatDate } from '@core/utils/format-date'
+import { generateOccupancyData } from '@core/utils/generateOccupancyData'
 import { IconBed } from '@tabler/icons-react'
 
 export function OccupancyWidget() {
-  const bestDate = calcBestDay()
+  const data = generateOccupancyData()
+  const bestDate = calcBestDay(data)
   const initialConfig = {
     name: 'Highest Occupancy',
     icon: IconBed,
@@ -18,8 +20,8 @@ export function OccupancyWidget() {
     change: `${bestDate.maxPercentage}%`,
     changeType: 'increase',
   }
-  const { data, isLoading, isError } = useWidget(initialConfig)
-  return <DashWidget item={data} />
+  const { data: item, isLoading, isError } = useWidget(initialConfig)
+  return <DashWidget item={item} />
 }
 
 export function OccupancyAveragesCard({ item }: { item: AveragesWidget }) {

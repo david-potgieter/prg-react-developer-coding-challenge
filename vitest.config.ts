@@ -6,9 +6,9 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],
-    include: ['./tests/**/*.test.tsx'],
+    include: ['./tests/**/*.test.ts', './tests/**/*.test.tsx'],
     coverage: {
-      reporter: ['json-summary', 'json'],
+      reporter: ['json-summary', 'json', 'text'],
     },
   },
   resolve: { alias: { '@core': path.resolve(__dirname, './src/') } },
