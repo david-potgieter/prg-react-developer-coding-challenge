@@ -1,3 +1,5 @@
+import { Icon } from '@tabler/icons-react'
+
 export interface RoomType {
   room_number: string
   category: string
@@ -49,4 +51,15 @@ export type SelectFunction = (data: RoomType[]) => RoomType[]
 export type FlagData = {
   room: RoomType
   action: string
+}
+
+export type Widget = {
+  name: string
+  icon: Icon
+  path: string
+  showChange: boolean
+  stat?: string
+  change?: string
+  changeType?: string
+  select?: SelectFunction
 }

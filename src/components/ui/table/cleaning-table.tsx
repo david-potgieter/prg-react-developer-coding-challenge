@@ -3,6 +3,7 @@ import { InventoryEdit } from '@core/components/ui/popover/edit-inventory'
 import { TableUI } from '@core/components/ui/table/table-ui'
 import { useTableData } from '@core/state/hooks/use-table-data'
 import { RoomType, Table, cleaningColumnNames } from '@core/types/room-types'
+import { filterAndSortFlaggedRooms } from '@core/utils/filter-sort-flagged-rooms'
 import { formatTime } from '@core/utils/format-time'
 import { IconFlag } from '@tabler/icons-react'
 
@@ -10,7 +11,7 @@ const cleaningTableConfig: Table = {
   title: 'Cleaning Queue',
   description: 'List of rooms queued for cleaning',
   columns: cleaningColumnNames,
-  select: (data: RoomType[]) => data.filter((room: RoomType) => room.flagged),
+  select: (data: RoomType[]) => filterAndSortFlaggedRooms(data),
 }
 
 export function CleaningTable() {

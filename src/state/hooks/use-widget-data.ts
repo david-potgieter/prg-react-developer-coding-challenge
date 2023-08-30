@@ -1,13 +1,13 @@
 import { useInventory } from '@core/state/hooks/use-inventory'
-import { Table } from '@core/types/room-types'
+import { Widget } from '@core/types/room-types'
 
-export function useTableData(initialConfig: Table) {
+export function useWidget(initialConfig: Widget) {
   const { data: rawData, isLoading, isError } = useInventory(initialConfig?.select)
 
   const data = {
-    data: rawData || [],
+    stat: rawData?.length,
     ...initialConfig,
-  }
+  } as Widget
 
   return { data, isLoading, isError }
 }

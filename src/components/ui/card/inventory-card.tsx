@@ -1,6 +1,7 @@
 import { RoomImage } from '@core/components/ui/image/room-image'
 import { InventoryEdit } from '@core/components/ui/popover/edit-inventory'
 import { RoomType } from '@core/types/room-types'
+import { IconFlag } from '@tabler/icons-react'
 
 export function InventoryCard({ item }: { item: RoomType }) {
   return (
@@ -16,7 +17,7 @@ export function InventoryCard({ item }: { item: RoomType }) {
         <div className="truncate">{item.description}</div>
       </div>
       <div className="flex justify-between items-center align-middle">
-        <div>flag</div>
+        <div>{item?.flagged ? <IconFlag className="w-5 h-5 text-violet-600" /> : null}</div>
         <div>
           <InventoryEdit item={item} />
         </div>
