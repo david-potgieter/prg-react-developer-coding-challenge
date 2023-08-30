@@ -2,6 +2,7 @@ import { Logo } from '@core/components/ui/logo/logo'
 import { routeConfig } from '@core/config/routes'
 import { darkModeAtom } from '@core/state/atoms/theme-atoms'
 import { cn } from '@core/utils/cn'
+import { isPathCurrent } from '@core/utils/is-path-current'
 import { Disclosure } from '@headlessui/react'
 import { IconMenu2, IconX } from '@tabler/icons-react'
 import { useAtomValue } from 'jotai'
@@ -31,16 +32,15 @@ export function DashboardLayout(props: { title: string; children: ReactNode }) {
                         <div className="hidden md:block">
                           <div className="ml-10 flex items-baseline space-x-4">
                             {routeConfig.map(item => {
-                              // const current = item.path === window.location.pathname
-                              const current = false
+                              const current = isPathCurrent(item.path)
                               return (
                                 <Link
                                   key={item.path}
                                   to={item.path}
                                   className={cn(
                                     current
-                                      ? 'bg-gray-900 text-white'
-                                      : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                      ? 'text-violet-600 bg-violet-100 dark:bg-gray-900 dark:text-white'
+                                      : 'text-violet-600 dark:text-gray-300 hover:bg-violet-100 dark:hover:bg-gray-700 hover:text-violet-800 dark:hover:text-white',
                                     'rounded-md px-3 py-2 text-sm font-medium',
                                   )}
                                   aria-current={current ? 'page' : undefined}>
@@ -75,7 +75,7 @@ export function DashboardLayout(props: { title: string; children: ReactNode }) {
                 <Disclosure.Panel className="border-b border-gray-200 dark:border-gray-700 md:hidden">
                   <div className="space-y-1 px-2 py-3 sm:px-3">
                     {routeConfig.map(item => {
-                      const current = false
+                      const current = isPathCurrent(item.path)
                       return (
                         <Disclosure.Button
                           key={item.name}
@@ -83,8 +83,8 @@ export function DashboardLayout(props: { title: string; children: ReactNode }) {
                           to={item.path}
                           className={cn(
                             current
-                              ? 'bg-gray-900 text-white'
-                              : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                              ? 'text-violet-600 bg-violet-100 dark:bg-gray-900 dark:text-white'
+                              : 'text-violet-600 dark:text-gray-300 hover:bg-violet-100 dark:hover:bg-gray-700 hover:text-violet-800 dark:hover:text-white',
                             'block rounded-md px-3 py-2 text-base font-medium',
                           )}
                           aria-current={current ? 'page' : undefined}>
