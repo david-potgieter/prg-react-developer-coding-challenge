@@ -1,8 +1,8 @@
+import { RoomImage } from '@core/components/ui/image/room-image'
 import { InventoryEdit } from '@core/components/ui/popover/edit-inventory'
 import { TableUI } from '@core/components/ui/table/table-ui'
 import { useTableData } from '@core/state/hooks/use-table-data'
 import { RoomType, Table, roomColumnNames } from '@core/types/room-types'
-import { getImageUrl } from '@core/utils/get-image-url'
 
 const inventoryTableConfig: Table = {
   title: 'Inventory',
@@ -21,11 +21,7 @@ export function InventoryTable() {
             {item.room_number}
           </td>
           <td className="py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
-            <img
-              src={getImageUrl(item.image.replace('./images/', ''))}
-              alt=""
-              className="h-10 w-10 rounded-xl"
-            />
+            <RoomImage src={item.image} />
           </td>
           <td className="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
             {item.category}
