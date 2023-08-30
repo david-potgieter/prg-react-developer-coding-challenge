@@ -2,12 +2,13 @@ import { RoomImage } from '@core/components/ui/image/room-image'
 import { InventoryEdit } from '@core/components/ui/popover/edit-inventory'
 import { TableUI } from '@core/components/ui/table/table-ui'
 import { useTableData } from '@core/state/hooks/use-table-data'
-import { RoomType, Table, roomColumnNames } from '@core/types/room-types'
+import { RoomType, Table, inventoryColumnNames } from '@core/types/room-types'
+import { IconFlag } from '@tabler/icons-react'
 
 const inventoryTableConfig: Table = {
   title: 'Inventory',
   description: 'View and manage your inventory',
-  columns: roomColumnNames,
+  columns: inventoryColumnNames,
 }
 
 export function InventoryTable() {
@@ -18,7 +19,10 @@ export function InventoryTable() {
       {tableConfig.data.map((item: RoomType) => (
         <tr key={item.room_number}>
           <td className="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-            {item.room_number}
+            <div className="flex justify-start items-center align-middle space-x-4">
+              {item?.flagged ? <IconFlag className="w-5 h-5 text-violet-600" /> : null}
+              {item.room_number}
+            </div>
           </td>
           <td className="py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
             <RoomImage src={item.image} />
@@ -31,7 +35,7 @@ export function InventoryTable() {
           </td>
 
           <td className="py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
-            <InventoryEdit />
+            <InventoryEdit item={item} />
           </td>
         </tr>
       ))}
