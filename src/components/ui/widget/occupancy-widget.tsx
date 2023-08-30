@@ -1,7 +1,9 @@
 import { DashWidget } from '@core/components/ui/widget/dash-widget'
 import { AppRoutes } from '@core/config/routes'
 import { useWidget } from '@core/state/hooks/use-widget-data'
+import { AveragesWidget } from '@core/types/room-types'
 import { calcBestDay } from '@core/utils/calc-best-day'
+import { cn } from '@core/utils/cn'
 import { formatDate } from '@core/utils/format-date'
 import { IconBed } from '@tabler/icons-react'
 
@@ -20,11 +22,11 @@ export function OccupancyWidget() {
   return <DashWidget item={data} />
 }
 
-export function OccupancyAveragesCard({ name, stat }: { name: string; stat: string }) {
+export function OccupancyAveragesCard({ item }: { item: AveragesWidget }) {
   return (
     <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6 mt-10">
-      <dt className="truncate text-sm font-medium text-gray-500">{name}</dt>
-      <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-700">{stat}%</dd>
+      <dt className={cn('truncate text-sm font-medium', item.color)}>{item.name}</dt>
+      <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-700">{item.stat}%</dd>
     </div>
   )
 }

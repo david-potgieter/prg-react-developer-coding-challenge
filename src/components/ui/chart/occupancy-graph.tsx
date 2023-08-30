@@ -55,9 +55,9 @@ export function OccupancyGraph() {
           <YAxis tick={yAxisTick} />
           <Tooltip />
           <Legend wrapperStyle={{ bottom: -15 }} />
-          <Line type="monotone" dataKey="Standard" stroke="#8884d8" />
-          <Line type="monotone" dataKey="Deluxe" stroke="#82ca9d" />
-          <Line type="monotone" dataKey="Suite" stroke="#fcba03" />
+          <Line type="monotone" dataKey="Standard" stroke="#8b5cf6" />
+          <Line type="monotone" dataKey="Deluxe" stroke="#0ea5e9" />
+          <Line type="monotone" dataKey="Suite" stroke="#eab308" />
         </LineChart>
       </ResponsiveContainer>
     </div>

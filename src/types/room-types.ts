@@ -63,3 +63,9 @@ export type Widget = {
   changeType?: string
   select?: SelectFunction
 }
+
+export type AveragesWidget = {
+  name: string
+  stat: string
+  color: string
+}

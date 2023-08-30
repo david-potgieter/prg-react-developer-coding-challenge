@@ -19,8 +19,8 @@ export function calcAveragesByRoom() {
   const avgSuite = (sumSuite / totalDays).toFixed(2)
 
   return [
-    { name: 'Standard', stat: avgStandard },
-    { name: 'Deluxe', stat: avgDeluxe },
-    { name: 'Suite', stat: avgSuite },
+    { name: 'Standard', stat: avgStandard, color: 'text-violet-500' },
+    { name: 'Deluxe', stat: avgDeluxe, color: 'text-sky-500' },
+    { name: 'Suite', stat: avgSuite, color: 'text-yellow-500' },
   ]
 }
