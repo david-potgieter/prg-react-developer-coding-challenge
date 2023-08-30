@@ -69,3 +69,10 @@ export type AveragesWidget = {
   stat: string
   color: string
 }
+
+export type OccupancyData = {
+  date: string
+  Standard: number
+  Deluxe: number
+  Suite: number
+}

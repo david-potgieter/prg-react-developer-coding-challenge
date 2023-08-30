@@ -1,7 +1,6 @@
-import { generateOccupancyData } from '@core/utils/generateOccupancyData'
+import { OccupancyData } from '@core/types/room-types'
 
-export function calcBestDay() {
-  const data = generateOccupancyData()
+export function calcBestDay(data: OccupancyData[]) {
   let maxStandard = -Infinity
   let maxDeluxe = -Infinity
   let maxSuite = -Infinity

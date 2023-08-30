@@ -1,7 +1,6 @@
-import { generateOccupancyData } from '@core/utils/generateOccupancyData'
+import { OccupancyData } from '@core/types/room-types'
 
-export function calcAveragesByRoom() {
-  const data = generateOccupancyData()
+export function calcAveragesByRoom(data: OccupancyData[]) {
   let sumStandard = 0
   let sumDeluxe = 0
   let sumSuite = 0
