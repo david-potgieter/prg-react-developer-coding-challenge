@@ -1,16 +1,12 @@
 import { QueryKeys } from '@core/config/query-keys'
 import { queryClient } from '@core/state/providers/query-provider'
-import { RoomType } from '@core/types/room-types'
+import { FlagData, RoomType } from '@core/types/room-types'
 import { updateRoomData } from '@core/utils/update-room-data'
 import { useMutation } from '@tanstack/react-query'
 
-export function flagForCleaning(data) {
-  return data
-}
-
 export function useFlagForCleaning() {
   return useMutation({
-    mutationFn: flagForCleaning,
+    mutationFn: async (data: FlagData) => data,
     onMutate: async updatedItem => {
       await queryClient.cancelQueries({ queryKey: [QueryKeys.INVENTORY] })
       const prevInventory = queryClient.getQueryData([QueryKeys.INVENTORY])

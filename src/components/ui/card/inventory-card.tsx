@@ -18,7 +18,7 @@ export function InventoryCard({ item }: { item: RoomType }) {
       <div className="flex justify-between items-center align-middle">
         <div>flag</div>
         <div>
-          <InventoryEdit />
+          <InventoryEdit item={item} />
         </div>
       </div>
     </div>
