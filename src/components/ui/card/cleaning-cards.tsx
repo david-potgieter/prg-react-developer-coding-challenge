@@ -3,7 +3,7 @@ import { useInventory } from '@core/state/hooks/use-inventory'
 import { RoomType } from '@core/types/room-types'
 import { Fragment } from 'react'
 
-export function InventoryCards() {
+export function CleaningCards() {
   const { data, isLoading, isError } = useInventory()
 
   return (

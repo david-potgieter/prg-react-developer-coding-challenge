@@ -2,17 +2,19 @@ import { RoomImage } from '@core/components/ui/image/room-image'
 import { InventoryEdit } from '@core/components/ui/popover/edit-inventory'
 import { TableUI } from '@core/components/ui/table/table-ui'
 import { useTableData } from '@core/state/hooks/use-table-data'
-import { RoomType, Table, inventoryColumnNames } from '@core/types/room-types'
+import { RoomType, Table, cleaningColumnNames } from '@core/types/room-types'
+import { formatTime } from '@core/utils/format-time'
 import { IconFlag } from '@tabler/icons-react'
 
-const inventoryTableConfig: Table = {
-  title: 'Inventory',
-  description: 'View and manage your inventory',
-  columns: inventoryColumnNames,
+const cleaningTableConfig: Table = {
+  title: 'Cleaning Queue',
+  description: 'List of rooms queued for cleaning',
+  columns: cleaningColumnNames,
+  select: (data: RoomType[]) => data.filter((room: RoomType) => room.flagged),
 }
 
-export function InventoryTable() {
-  const { data: tableConfig, isLoading, isError } = useTableData(inventoryTableConfig)
+export function CleaningTable() {
+  const { data: tableConfig, isLoading, isError } = useTableData(cleaningTableConfig)
 
   return (
     <TableUI config={tableConfig}>
@@ -31,7 +33,7 @@ export function InventoryTable() {
             {item.category}
           </td>
           <td className="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-            {item.description}
+            {formatTime(item.flagged_date)}
           </td>
 
           <td className="py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-6">
