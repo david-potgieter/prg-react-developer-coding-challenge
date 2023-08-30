@@ -7,7 +7,7 @@ export function DashWidget({ item }: { item: Widget }) {
   return (
     <div className="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6">
       <dt>
-        <div className="absolute rounded-md bg-indigo-500 p-3">
+        <div className="absolute rounded-md bg-violet-500 p-3">
           <item.icon className="h-6 w-6 text-white" aria-hidden="true" />
         </div>
         <p className="ml-16 truncate text-sm font-medium text-gray-500">{item.name}</p>
@@ -41,7 +41,7 @@ export function DashWidget({ item }: { item: Widget }) {
         ) : null}
         <div className="absolute inset-x-0 bottom-0 bg-gray-50 px-4 py-4 sm:px-6">
           <div className="text-sm">
-            <Link to={item.path} className="font-medium text-indigo-600 hover:text-indigo-500">
+            <Link to={item.path} className="font-medium text-violet-600 hover:text-violet-500">
               View all<span className="sr-only"> {item.name} stats</span>
             </Link>
           </div>

@@ -18,8 +18,5 @@ export function useFlagForCleaning() {
     onError: (err, newItem, context) => {
       queryClient.setQueryData([QueryKeys.INVENTORY], context?.prevInventory)
     },
-    onSettled: () => {
-      console.log('onSettled')
-    },
   })
 }
