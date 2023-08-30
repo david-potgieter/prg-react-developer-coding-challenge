@@ -1,4 +1,4 @@
-import { AppProvider } from '@core/state/providers/AppProvider'
+import { AppProvider } from '@core/state/providers/app-provider'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 

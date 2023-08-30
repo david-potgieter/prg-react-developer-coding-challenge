@@ -2,7 +2,7 @@ import { InventoryEdit } from '@core/components/ui/popover/edit-inventory'
 import { TableUI } from '@core/components/ui/table/table-ui'
 import { useTableData } from '@core/state/hooks/use-table-data'
 import { RoomType, Table, roomColumnNames } from '@core/types/room-types'
-import { getImageUrl } from '@core/utils/getImageUrl'
+import { getImageUrl } from '@core/utils/get-image-url'
 
 const inventoryTableConfig: Table = {
   title: 'Inventory',
